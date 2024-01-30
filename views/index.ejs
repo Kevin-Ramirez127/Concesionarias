@@ -1,0 +1,13 @@
+<%- include('./components/header') %>
+
+    <h1>¡Hola, bienvenido a Campus concesionarias!</h1>
+    <h2>Busca tu auto ideal en una de nuestras sucursales:</h2>
+    <ul>
+      <li><a href="/sucursales">Todas las sucursales</a></li>
+      <br>
+      <% for(name of sucursalesNames) { %>
+        <li><a href="/sucursales/<%= name %>"><%= name %></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

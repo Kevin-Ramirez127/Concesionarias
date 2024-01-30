@@ -1,0 +1,14 @@
+<%- include('./components/header') %>
+    <h2>Aquí podrás encontrar todas las marcas</h2>
+
+    <ul style='list-style-type: none;'>
+      <% for(marca of marcas) {%>
+        <li>
+          <a href="/marcas/<%= marca %>"><h3><%= marca %></h3></a>
+        </li>
+        <hr>
+      <%}%>
+    </ul>
+
+  </body>
+</html>

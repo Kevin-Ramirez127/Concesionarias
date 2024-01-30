@@ -1,0 +1,16 @@
+<%- include('./components/header') %>
+    <h2>Todos los autos de la marca <%= marca %></h2>
+
+    <ul style='list-style-type: none;'>
+      <% for(auto of autos) {%>
+        <li>
+          <h3><%= auto.modelo %></h3>
+          <p><%= auto.anio %></p>
+          <img src="<%= auto.img %>" alt="" width='200'>
+        </li>
+        <hr>
+      <%}%>
+    </ul>
+
+  </body>
+</html>

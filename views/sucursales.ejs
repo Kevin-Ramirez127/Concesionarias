@@ -1,0 +1,17 @@
+<%- include('./components/header') %>
+
+    <h2>Aquí podrás encontrar los detalles de todas las sucursales</h2>
+
+    <ul style='list-style-type: none;'>
+      <% for(suc of sucursales) {%>
+        <li>
+          <a href="/sucursales/<%= suc.sucursal %>"><h3><%= suc.sucursal %></h3></a>
+          <p><%= suc.direccion %></p>
+          <a href="tel:<%=suc.telefono%>"><p><em><%= suc.telefono %></p></em></a>
+        </li>
+        <hr>
+      <%}%>
+    </ul>
+
+  </body>
+</html>

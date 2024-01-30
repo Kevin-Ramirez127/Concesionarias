@@ -1,0 +1,24 @@
+<%- include('./components/header') %>
+    <h2>Bienvenido a <span style='color: #941919'><%=sucursal%></span> automóviles</h2>
+    <br>
+    <h3>¿Dónde encontrarnos?</h3>
+    <p><strong>Dirección:</strong> <%=direccion%></p>
+    <p><strong>Teléfono de contacto:</strong> <a href="tel:<%=telefono%>"><em><%=telefono%></em></a></p>
+    <hr>
+    <h3>Nuestra concesionaria cuenta con un total de <strong><%= autos.length %></strong> autos</h3>
+    <hr>
+    <ul style='list-style-type: none;'>
+      <% for(auto of autos) {%>
+        <li>
+          <h2><%= auto.modelo %></h2>
+          <a href="/marcas/<%= auto.marca %>"><p><%= auto.marca %></p></a>
+          <img src="<%= auto.img %>" width='200' alt="" srcset="">
+          <p>Año: <%= auto.anio %></p>
+          <p>Color: <%= auto.color %></p>
+        </li>
+        <hr>
+      <%}%>
+    </ul>
+
+  </body>
+</html>
