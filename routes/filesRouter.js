@@ -2,9 +2,9 @@
 var express = require('express');
 var router = express.Router();
 // Controller
-const marcaController = require('../controllers/marcaController');
+const filesController = require('../controllers/filesController');
 
 /* GET home page. */
-router.get('/', marcaController.index);
+router.get('/images/:file', filesController.image);
 
 module.exports = router;

@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 const sucursalesRouter = require('./routes/sucursales'); 
+const filesRouter = require('./routes/filesRouter'); 
 const marcaRouter = require('./routes/marca');
 const autoRouter = require('./routes/autos');
 
@@ -20,10 +22,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/sucursales', sucursalesRouter);
-app.use('/marcas', marcaRouter);
+app.use('/files', filesRouter);
+app.use('/marca', marcaRouter);
 app.use('/autos', autoRouter);
 
 // catch 404 and forward to error handler

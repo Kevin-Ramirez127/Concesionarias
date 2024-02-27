@@ -1,14 +1,16 @@
 // Utils
+const getFileUrl = require('../utils/getFileUrl');
 const { readDB } = require('../utils/dbManager');
 
 const indexController = {
 	index: function (req, res, next) {
-
 		const sucursales = readDB('concesionarias');
+		const sucursalData = sucursales.map(dealer => ({
+			name: dealer.sucursal,
+			cover: getFileUrl(req, dealer.autos[0].img)
+		}));
 
-		const sucursalesNames = sucursales.map(dealer => dealer.sucursal)
-
-		res.render('index', { title: 'Home', sucursalesNames });
+		res.send(sucursalData);
 	}
 }
 
